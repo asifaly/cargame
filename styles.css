@@ -4,15 +4,18 @@ h3 {
 }
 
 div {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 #container {
   width: 500px;
   height: 500px;
-  border: 5px solid black;
+  border-width: 5px;
+  border-style: solid;
+  border-color: grey;
   padding: 0px;
   margin: auto;
+  transition: border-width 0.5s ease-in;
 }
 
 #sprite {

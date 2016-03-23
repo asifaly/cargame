@@ -1,0 +1,46 @@
+h3 {
+  margin: auto;
+  text-align: center;
+}
+
+div {
+  box-sizing: content-box;
+}
+
+#container {
+  width: 500px;
+  height: 500px;
+  border: 5px solid black;
+  padding: 0px;
+  margin: auto;
+}
+
+#sprite {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  background: red;
+  border: 0px;
+}
+
+#buttondiv {
+  width: 500px;
+  margin: auto;
+}
+
+button {
+  background: blue;
+  width: 50px;
+  color: white;
+  border: 0px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.red {
+  background: red;
+}
+
+.green {
+  background: green;
+}

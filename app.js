@@ -10,7 +10,9 @@ $(document).ready(function() {
       this.sprite = sprite;
       this.container = container;
       this.isStarted = false;
+      this.score = 0;
 
+      $(this.container).show("bounce");
       //initialize border, left and top values
       $(this.sprite).css('left', '0px');
       $(this.sprite).css('top', '0px');
@@ -23,13 +25,14 @@ $(document).ready(function() {
 
       //set initial playArea
       this.setPlayArea();
-
       // console.log(this.dimensions);
     },
 
-    start: function() {
-      this.isStarted = true;
+    start: function(sprite, container, begin) {
       this.borderChange();
+      $(begin).hide();
+      this.init(sprite, container);
+      this.isStarted = true;
     },
 
     move: function(side, rev) {
@@ -45,13 +48,16 @@ $(document).ready(function() {
         //get the position of top/left depending on value in side
         var pos = parseInt($(this.sprite).css(direction[side]));
 
+
         function frame() {
           //if move Up or towards right then decrement else increment pos
+          that.score += 1;
           rev ? pos-- : pos++;
           //check if pos is left/top is greater than total playarea or less than zero
           //if yes then game over clear the interval id's
           //else continue
           pos > that.dimensions.playArea || pos < 0 ? that.over() : $(that.sprite).css(direction[side], pos + 'px');
+          console.log(that.score);
         }
 
       }
@@ -74,10 +80,9 @@ $(document).ready(function() {
         clearInterval(this.intervalId);
       }
 
-      alert("game over");
-      //reset the game
-      game.init(car, gamearea);
-
+      $('#gamearea').hide("slow");
+      $(begin).html('<span>Game Over! <br> Click to Play Again</span>');
+      $(begin).show("slow");
     },
 
     //measure the dimensions and set the max PlayArea
@@ -107,11 +112,11 @@ $(document).ready(function() {
   };
 
   var car = $('#sprite');
-  var gamearea = $("#container");
-  game.init(car, gamearea);
+  var gamearea = $("#gamearea");
+  var begin = $('#begin');
 
-  $('#start').click(function() {
-    game.start();
+  $('#begin').click(function() {
+    game.start(car, gamearea, begin);
   });
 
   $('#right').click(function() {

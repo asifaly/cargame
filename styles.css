@@ -1,3 +1,7 @@
+body {
+  font-family: sans-serif;
+}
+
 h3 {
   margin: auto;
   text-align: center;
@@ -7,15 +11,28 @@ div {
   box-sizing: border-box;
 }
 
-#container {
+.main {
   width: 500px;
   height: 500px;
+  text-align: center;
+  margin: auto;
   border-width: 5px;
   border-style: solid;
   border-color: grey;
+  cursor: pointer;
   padding: 0px;
   margin: auto;
-  transition: border-width 0.5s ease-in;
+  transition: border-width .5s ease-in, visibility .5s ease-in;
+}
+
+.game {
+  display: none;
+}
+
+.end {
+  opacity: .5;
+  color: black;
+  background: silver;
 }
 
 #sprite {
@@ -45,5 +62,15 @@ button {
 }
 
 .green {
+  font-size: 2em;
+  line-height: 500px;
+  color: white;
   background: green;
+}
+
+span {
+  font-size: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }

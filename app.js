@@ -54,6 +54,7 @@ $(document).ready(function() {
           //if move Up or towards right then decrement else increment pos
           that.score += 1;
           $("#score").html(that.score);
+
           rev ? pos-- : pos++;
           //check if pos is left/top is greater than total playarea or less than zero
           //if yes then game over clear the interval id's
